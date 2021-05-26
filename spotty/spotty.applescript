@@ -1,9 +1,9 @@
 local trackID
--- need tomake a pretty logo
+-- need to make a pretty logo
 tell application "Spotify" to activate -- opens spotify
 repeat
 	if isOpen() = true then
-		try -- this is where the logic to detect song changes should do
+		try 
 			tell application "Spotify" -- grabbing data from current track to id it
 				set trackID to id of current track
 			end tell

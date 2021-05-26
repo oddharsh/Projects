@@ -2,7 +2,7 @@ local trackID
 local playerState
 repeat
 	if isOpen() = true then -- better open tester
-		try
+		try -- this is where the logic to detect song changes should go
 			tell application "Spotify" -- grabbing data from current track to id it
 				set trackID to id of current track
 				set playerState to (player state as string)
