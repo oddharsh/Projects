@@ -1,5 +1,5 @@
 local trackID
--- need to make a pretty logo
+-- need tomake a pretty logo
 tell application "Spotify" to activate -- opens spotify
 repeat
 	if isOpen() = true then
