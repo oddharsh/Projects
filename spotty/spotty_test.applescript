@@ -5,7 +5,7 @@ repeat
 		try -- this is where the logic to detect song changes should go
 			tell application "Spotify" -- grabbing data from current track to id it
 				set trackID to id of current track
-				set playerState to (player state as string)
+				set playerState to (player state as string) 
 			end tell
 		end try
 		if playerState = "playing" then
@@ -19,7 +19,7 @@ repeat
 				delay 0.3
 			end if
 		else
-			delay 2 -- idle delay to check if it's playing; is slower to save cpu
+			delay 2 -- idle delay for script to check if spotify is playing; is slower to save cpu
 		end if
 	else
 		return -- kills script if spotify isn't open

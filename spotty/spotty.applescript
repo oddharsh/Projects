@@ -1,5 +1,5 @@
 local trackID
--- need to make a pretty logo
+-- need to make a pretty logo since this is now a launcher sitting on my dock
 tell application "Spotify" to activate -- opens spotify
 repeat
 	if isOpen() = true then
@@ -11,9 +11,9 @@ repeat
 				tell application "Spotify" to quit -- quit, then relaunch and play
 				delay 1
 				tell application "Spotify"
-					launch
-					delay 1
-					play
+                    launch
+                    delay 1
+                    play
 				end tell
 			end if
 		end try
