@@ -10,12 +10,13 @@ repeat
 		end try
 		if playerState = "playing" then
 			if (offset of "ad" in trackID) = 9 then
-				tell application "Spotify" to quit -- might want to figure out how to make this better by cutting out the delays / making them shorter
-				delay 1
-				tell application "Spotify"
-					launch
-					play
-				end tell
+				tell application "Spotify" 
+          			quit -- quit, then relaunch and play
+					delay 1
+          			launch
+          			-- delay 1; unsure whether this is unnecessary?
+          			play
+          		end tell
 				delay 0.3
 			end if
 		else
