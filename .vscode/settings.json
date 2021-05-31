@@ -1,3 +1,4 @@
 {
-    "editor.fontFamily": "SF Mono, Monaco, 'SF Mono', monospace"
+    "editor.fontFamily": "SF Mono, Monaco, 'SF Mono', monospace",
+    "editor.formatOnSave": true
 }

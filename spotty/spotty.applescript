@@ -23,10 +23,8 @@ repeat
 	end if
 end repeat
 
-
 on isOpen()
 	local spotState
 	tell application "System Events" to set spotState to exists (processes where name is "Spotify")
 	return spotState
 end isOpen
-

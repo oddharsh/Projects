@@ -1,5 +1,6 @@
 local trackID
 local playerState
+-- todo: rewrite logic to detect when song changes, fix glitch when left idle for too long
 tell application "Spotify" to activate -- opens spotify
 repeat
 	if isOpen() = true then -- better open tester
@@ -27,7 +28,6 @@ repeat
 		return -- kills script if spotify isn't open
 	end if
 end repeat
-
 
 on isOpen()
 	local spotState
