@@ -1,5 +1,6 @@
 local trackID
 local playerState
+tell application "Spotify" to activate -- opens spotify
 repeat
 	if isOpen() = true then -- better open tester
 		try -- this is where the logic to detect song changes should go
@@ -14,15 +15,15 @@ repeat
           			quit -- quit, then relaunch and play
 					delay 1
           			launch
-          			-- delay 1; unsure whether this is unnecessary?
+          			-- delay 1; unsure whether this is necessary?
           			play
           		end tell
 				delay 0.3
 			end if
-		else
-			delay 2 -- idle delay for script to check if spotify is playing; is slower to save cpu
+		else -- when spotify's paused
+			delay 3 -- idle delay for script to check if spotify is playing; is slower to save cpu
 		end if
-	else
+	else -- when spotify's closed
 		return -- kills script if spotify isn't open
 	end if
 end repeat
