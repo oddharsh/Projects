@@ -1,4 +1,4 @@
-local trackID, playerState, loggedID
+local trackID, playerState
 -- todo: fix glitch when left idle for too long
 tell application "Spotify" to activate -- opens spotify
 repeat
@@ -9,7 +9,7 @@ repeat
 				set playerState to (player state as string) 
 			end tell
 		end try
-		if playerState = "playing" and trackID ­ loggedID then
+		if playerState = "playing" then
 			if (offset of "ad" in trackID) = 9 then
 				tell application "Spotify" 
           			quit -- quit, then relaunch and play
@@ -19,9 +19,8 @@ repeat
           			play
           		end tell
 			end if 
-				set loggedID to trackID
 				delay 0.3
-		else if playerState = "paused"-- when spotify's paused
+		else if playerState = "paused"
 			delay 3 -- idle delay for script to check if spotify is playing; is slower to save cpu
 		end if
 	else -- when spotify's closed

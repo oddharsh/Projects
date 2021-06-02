@@ -1,1 +1,1 @@
-store the id of the currently playing track and compare it at the start of the 0.3s loop to alleviate the stuff that's repeated every 0.3s
+this is where ideas to fix and improve stufff will go 
