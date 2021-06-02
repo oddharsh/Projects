@@ -1,4 +1,4 @@
-local currentTrackPopularity, currentTrackDuration, currentTrackName, currentAlbum, currentDisc, playCount, Surl
+local currentTrackPopularity, currentTrackDuration, currentTrackName, currentAlbum, currentDisc, playCount, Surl, playerState
 tell application "Spotify"
 	set currentTrackPopularity to popularity of current track
 	set currentTrackDuration to duration of current track
@@ -10,5 +10,6 @@ tell application "Spotify"
 	set trackNumber to track number of current track
 	set Surl to spotify url of current track
 	set Sid to id of current track
+	set playerState to (player state as string)
 end tell
-return {currentTrackPopularity, currentTrackDuration, currentTrackName, currentArtist, currentAlbum, currentDisc, playCount, trackNumber, Surl, Sid}
+return {playerState, currentTrackPopularity, currentTrackDuration, currentTrackName, currentArtist, currentAlbum, currentDisc, playCount, trackNumber, Surl, Sid}

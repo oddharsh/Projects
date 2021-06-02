@@ -1,6 +1,4 @@
-local trackID
-local playerState
-local loggedID
+local trackID, playerState, loggedID
 -- todo: fix glitch when left idle for too long
 tell application "Spotify" to activate -- opens spotify
 repeat
@@ -23,7 +21,7 @@ repeat
 			end if 
 				set loggedID to trackID
 				delay 0.3
-		else -- when spotify's paused
+		else if playerState = "paused"-- when spotify's paused
 			delay 3 -- idle delay for script to check if spotify is playing; is slower to save cpu
 		end if
 	else -- when spotify's closed
