@@ -24,9 +24,9 @@ repeat
 end repeat
 
 
-on isOpen()
+on isOpen() -- function that polls System Events to see if Spotify processes are open
 	local spotState
-	tell application "System Events" to set spotState to exists (processes where name is "Spotify") -- might need to find an alt thing since I occasionally get -10000 errors
+	tell application "System Events" to set spotState to exists (processes where name is "Spotify") -- something is wrong with the exists thing, ig I shouldn't specify processes?
 	return spotState
 end isOpen
 
