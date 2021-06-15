@@ -1,32 +1,21 @@
 local trackID
 -- need to make a pretty logo
-tell application "Spotify" to activate -- opens spotify
-repeat
-	if isOpen() = true then
-		try 
-			tell application "Spotify" -- grabbing data from current track to id it
-				set trackID to id of current track
-			end tell
-			if (offset of "ad" in trackID) = 9 then -- basically checking if the track is tagged as an ad
-				tell application "Spotify" to quit -- quit, then relaunch and play
+tell application "Spotify" to activate -- launches spotify
+
+repeat while application "Spotify" is running -- the actual script portion
+	try
+		tell application "Spotify" -- grabbing data from current track to id it
+			set trackID to id of current track
+		end tell
+		if (offset of "ad" in trackID) = 9 then -- basically checking if the track is tagged as an ad
+			tell application "Spotify" to quit -- quit, then relaunch and play
+			delay 1
+			tell application "Spotify"
+				launch
 				delay 1
-				tell application "Spotify"
-					launch
-					delay 1
-					play
-				end tell
-			end if
-		end try
-		delay 0.3 -- Repeat this entire block every .3 seconds. A more efficient alt would be to repeat this when the song changes, though that's going to be more complex.
-	else
-		return
-	end if
+				play
+			end tell
+		end if
+	end try
+	delay 0.3 -- Repeat this entire block every .3 seconds. A more efficient alt would be to run this when the song changes, though that's going to be more complex.
 end repeat
-
-
-on isOpen() -- function that polls System Events to see if Spotify processes are open
-	local spotState
-	tell application "System Events" to set spotState to exists (processes where name is "Spotify") -- something is wrong with the exists thing, ig I shouldn't specify processes?
-	return spotState
-end isOpen
-
