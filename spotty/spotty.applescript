@@ -26,7 +26,7 @@ end repeat
 
 on isOpen()
 	local spotState
-	tell application "System Events" to set spotState to exists (processes where name is "Spotify")
+	tell application "System Events" to set spotState to exists (processes where name is "Spotify") -- might need to find an alt thing since I occasionally get -10000 errors
 	return spotState
 end isOpen
 
