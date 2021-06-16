@@ -17,5 +17,5 @@ repeat while application "Spotify" is running -- the actual script portion
 			end tell
 		end if
 	end try
-	delay 0.3 -- Repeat this entire block every .3 seconds. A more efficient alt would be to run this when the song changes, though that's going to be more complex.
+	delay 0.5 -- Repeat this entire block every .5 seconds. A more efficient alt would be to run this when the song changes, though that's going to be more complex.
 end repeat
