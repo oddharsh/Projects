@@ -16,11 +16,12 @@ repeat while application "Spotify" is running -- better open tester
 	end try
 end repeat
 
-on relaunch()
-	tell application "Spotify"
-	quit -- quit, then relaunch and play
-	delay 0.5
-	launch
-	play
-end tell
+on relaunch() -- quit, then relaunch and play
+	tell application "Spotify" to quit
+			delay 1
+			tell application "Spotify"
+				launch
+				delay 1
+				play
+			end tell
 end relaunch

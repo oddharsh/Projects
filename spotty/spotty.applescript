@@ -10,10 +10,11 @@ repeat while application "Spotify" is running -- the actual script portion
 end repeat
 
 on relaunch() -- quit, then relaunch and play
-	tell application "Spotify"
-		quit
-		delay 1
-		launch
-		play
-	end tell
+	tell application "Spotify" to quit
+			delay 1
+			tell application "Spotify"
+				launch
+				delay 1
+				play
+			end tell
 end relaunch
