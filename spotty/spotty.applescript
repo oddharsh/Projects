@@ -1,5 +1,4 @@
 local trackID
--- need to make a pretty logo
 tell application "Spotify" to activate -- launches spotify
 
 repeat while application "Spotify" is running -- the actual script portion
