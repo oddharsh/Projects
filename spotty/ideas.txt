@@ -1,6 +1,6 @@
 maybe might want to figure out the stay-open applet stuff and the various handlers?
-
-here's the WIP that I'm abandoning for now 
+The reopen handler looks like it could work as a makeshift quit thing?
+here's the WIP that I'm abandoning for now:
 on run
 	local trackID, playerState
 	-- todo: fix glitch when left idle for too long
@@ -30,7 +30,7 @@ on run
 	quit
 end run
 
-on idle --idle handler that is triggered when spotify is paused
+on idle --idle handler that is triggered when spotify is paused; basically need to say smth about how if it sees player is running it runs again?
 	return 5
 end idle
 
