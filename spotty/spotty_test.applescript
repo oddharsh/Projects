@@ -17,11 +17,13 @@ repeat while application "Spotify" is running -- better open tester
 end repeat
 
 on relaunch() -- quit, then relaunch and play
+	try
 	tell application "Spotify" to quit
-			delay 1
-			tell application "Spotify"
-				launch
-				delay 1
-				play
-			end tell
+	delay 1 -- experiment with lower delays
+	tell application "Spotify"
+		launch
+		--delay 0.5 -- unsure if this breaks
+		play
+	end tell
+end try
 end relaunch
