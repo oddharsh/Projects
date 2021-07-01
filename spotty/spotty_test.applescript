@@ -19,10 +19,14 @@ end repeat
 on relaunch() -- quit, then relaunch and play
 	try
 	tell application "Spotify" to quit
-	delay 1 -- experiment with lower delays
+	repeat until application "Spotify" is not running -- smarter alt to fixed delay
+		delay 0.05
+	end repeat
 	tell application "Spotify"
 		launch
-		--delay 0.5 -- unsure if this breaks
+		repeat until application "Spotify" is running -- smarter alt to fixed delay
+			delay 0.05
+		end repeat
 		play
 	end tell
 end try
