@@ -1,22 +1,19 @@
-on run
-	local trackID, playerState
-	tell application "Spotify" to activate -- opens spotify
-	repeat while application "Spotify" is running -- better open tester
-		try
-			tell application "Spotify" -- grabbing data from current track to id it
-				set trackID to id of current track
-				set playerState to (player state as string)
-			end tell
-			if playerState = "playing" then
-				if (offset of "ad" in trackID) = 9 then relaunch()
-				delay 0.5 -- polls every 0.5 while playing
-			else
-				idle
-			end if
-		end try
-	end repeat
-	quit
-end run
+local trackID
+tell application "Spotify" to activate -- launches spotify
+on idle
+	try
+		tell application "Spotify" to set trackID to id of current track -- grab track ID
+		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
+	end try
+	if application "Spotify" is not running then quit
+	return 0.5 -- polls every .5 seconds. 
+end idle
+
+on quit
+	tell application "Spotify" to quit
+	continue quit
+	return
+end quit
 
 on relaunch() -- quit, then relaunch and play
 	tell application "Spotify" to quit
@@ -31,14 +28,3 @@ on relaunch() -- quit, then relaunch and play
 		play
 	end tell
 end relaunch
-
-on idle --idle handler with a longer poll time for when spotify is paused
-	return 5
-    -- unsure about how to make it go back to the run handler when playerState = "playing"
-end idle
-
-on quit --WIP quit handler, need to figure out how to make this trigger on command + Q
-	--tell application "Spotify" to quit
-	continue quit
-	return
-end quit
