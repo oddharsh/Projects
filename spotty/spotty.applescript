@@ -1,6 +1,5 @@
 local trackID
 tell application "Spotify" to activate -- launches spotify
-tell application "Notes" to activate
 on idle
 	try
 		tell application "Spotify" to set trackID to id of current track -- grab track ID
