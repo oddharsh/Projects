@@ -12,7 +12,6 @@ end idle
 on quit
 	tell application "Spotify" to quit
 	continue quit
-	return
 end quit
 
 on relaunch() -- quit, then relaunch and play
