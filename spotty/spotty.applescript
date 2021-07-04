@@ -9,6 +9,10 @@ on idle
 	return 0.5 -- polls every .5 seconds. 
 end idle
 
+on reopen
+	tell application "Spotify" to activate
+end reopen
+
 on quit
 	try
 		tell application "Spotify" to quit -- this only does stuff if we're quitting spotty before spotify

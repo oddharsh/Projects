@@ -9,6 +9,10 @@ on idle
 	return 0.5 -- polls every .5 seconds. 
 end idle
 
+on reopen
+	tell application "Spotify" to activate
+end reopen
+
 on quit
 	tell application "Spotify" to quit
 	continue quit
