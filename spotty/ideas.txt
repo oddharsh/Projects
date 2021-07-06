@@ -1,2 +1,0 @@
-both spotty and spotty_test now have handlers, which lets them quit normally!
-Unfortunately quitting spotify the app now doesn't work nicely?
