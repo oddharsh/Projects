@@ -19,13 +19,13 @@ on quit
 end quit
 
 on relaunch() -- quit, then relaunch and play
-	tell application "Spotify" to quit
-	repeat until application "Spotify" is not running -- smarter alt to fixed delay
-		delay 0.05
-	end repeat
 	tell application "Spotify"
+		quit
+		repeat until application "Spotify" is not running -- waits until spotify's properly quit
+			delay 0.05
+		end repeat
 		launch
-		repeat until application "Spotify" is running -- smarter alt to fixed delay
+		repeat until application "Spotify" is running -- waits until spotify can handle play event
 			delay 0.05
 		end repeat
 		play
