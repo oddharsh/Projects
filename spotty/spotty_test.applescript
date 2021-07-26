@@ -1,11 +1,9 @@
 local trackID
 tell application "Spotify" to activate -- launches spotify
 on idle
-	try
 		tell application "Spotify" to set trackID to id of current track -- grab track ID
 		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
 		if application "Spotify" is not running then beep 3 -- doesn't always work, the beep thing is a test
-	end try
 	return 0.5 -- polls every .5 seconds. 
 end idle
 
