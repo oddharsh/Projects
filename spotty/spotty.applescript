@@ -5,8 +5,8 @@ on idle
 		tell application "Spotify" to set trackID to id of current track -- grab track ID
 		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
 	end try
-	if application "Spotify" is not running then quit me -- this seems to work sometimes?
-	return 0.5 -- polls every .5 seconds. 
+	if application "Spotify" is not running then tell me to quit -- this seems to work sometimes?
+	return 0.5 -- polls every 0.5 seconds. 
 end idle
 
 on reopen
