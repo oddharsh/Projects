@@ -1,11 +1,8 @@
 local trackID
 activate application "Spotify" -- launches spotify
 on idle
-	try
-		tell application "Spotify" to set trackID to id of current track -- grab track ID
-		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
-	end try
-	if application "Spotify" is not running then tell me to quit -- this seems to work sometimes?
+	check()
+	--if application "Spotify" is not running then tell me to quit -- this seems to work sometimes?
 	return 0.5 -- polls every 0.5 seconds. 
 end idle
 
@@ -17,6 +14,14 @@ on quit
 	quit application "Spotify" -- this only does stuff if we're quitting spotty before spotify
 	continue quit
 end quit
+
+on check()
+	try
+		tell application "Spotify" to set trackID to id of current track -- grab track ID
+		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
+		-- maybe just stick the relauncher in here?
+	end try
+end check
 
 on relaunch() -- quit, then relaunch and play
 	tell application "Spotify"
