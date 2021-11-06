@@ -1,9 +1,8 @@
-local trackID
 tell application "Spotify" to activate -- launches spotify
 on idle
 	repeat while application "Spotify" is running
-	check()
-	delay 0.5
+		check()
+		delay 0.5
 	end repeat
 	quit
 end idle
@@ -12,6 +11,10 @@ on quit -- binds spotty and spotify so that spotify quits when we quit spotty
 	tell application "Spotify" to quit
 	continue quit
 end quit
+
+on getTrack()
+	tell application "Spotify" to get id of current track
+end getTrack
 
 on relaunch() -- quit, then relaunch and play
 	tell application "Spotify"
@@ -24,8 +27,5 @@ on relaunch() -- quit, then relaunch and play
 end relaunch
 
 on check()
-	try
-		tell application "Spotify" to set trackID to id of current track -- grab track ID
-		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
-	end try
+	if (offset of "ad" in getTrack()) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
 end check
