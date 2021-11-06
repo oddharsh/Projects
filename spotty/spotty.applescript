@@ -1,8 +1,6 @@
-local trackID
 activate application "Spotify" -- launches spotify
 on idle
-	check()
-	--if application "Spotify" is not running then tell me to quit -- this seems to work sometimes?
+	poll()
 	return 0.5 -- polls every 0.5 seconds. 
 end idle
 
@@ -15,13 +13,15 @@ on quit
 	continue quit
 end quit
 
-on check()
+on getTrack()
+	tell application "Spotify" to get id of current track
+end getTrack
+
+on poll()
 	try
-		tell application "Spotify" to set trackID to id of current track -- grab track ID
-		if (offset of "ad" in trackID) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
-		-- maybe just stick the relauncher in here?
+		if (offset of "ad" in getTrack()) = 9 then relaunch() -- checks if the track is an ad and relaunches if it is
 	end try
-end check
+end poll
 
 on relaunch() -- quit, then relaunch and play
 	tell application "Spotify"
