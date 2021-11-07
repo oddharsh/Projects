@@ -24,10 +24,10 @@ on poll()
 end poll
 
 on relaunch() -- quit, then relaunch and play
+	tell application "System Events" to do shell script "kill -9 " & unix id of process "Spotify"
+	repeat until application "Spotify" is not running -- waits until spotify's properly quit
+	end repeat
 	tell application "Spotify"
-		quit
-		repeat until it is not running -- waits until spotify's properly quit
-		end repeat
 		run -- supposedly better than launch
 		play
 	end tell
