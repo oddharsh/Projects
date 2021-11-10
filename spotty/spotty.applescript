@@ -25,8 +25,6 @@ end poll
 
 on relaunch() -- quit, then relaunch and play
 	do shell script "pkill -9 -x Spotify"
-	repeat until application "Spotify" is not running -- waits until spotify's properly quit
-	end repeat
 	tell application "Spotify"
 		run -- supposedly better than launch
 		play
