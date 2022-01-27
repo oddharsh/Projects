@@ -24,9 +24,14 @@ on poll()
 end poll
 
 on relaunch() -- quit, then relaunch and play
-	do shell script "pkill -9 -x Spotify"
 	tell application "Spotify"
-		run -- supposedly better than launch
-		play
-	end tell
+	quit
+	repeat until it is not running
+	end repeat
+	run -- supposedly better than launch
+	repeat until it is running
+	end repeat
+	next track
+	play
+end tell
 end relaunch
