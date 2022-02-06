@@ -5,7 +5,8 @@ on idle
 end idle
 
 on reopen
-	activate application "Spotify" -- allows us to interact with spotify from spotty's dock icon
+	tell application "Spotify" to play
+	--activate application "Spotify" -- allows us t:o interact with spotify from spotty's dock icon
 end reopen
 
 on quit
@@ -25,13 +26,13 @@ end poll
 
 on relaunch() -- quit, then relaunch and play
 	tell application "Spotify"
-	quit
-	repeat until it is not running
-	end repeat
-	run -- supposedly better than launch
-	repeat until it is running
-	end repeat
-	next track
-	play
-end tell
+		quit
+		repeat until it is not running
+		end repeat
+		run -- supposedly better than launch
+		repeat until it is running
+		end repeat
+		next track
+		play
+	end tell
 end relaunch
