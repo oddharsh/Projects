@@ -11,15 +11,15 @@
 	<key>CFBundleIconFile</key>
 	<string>applet</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apple.ScriptEditor.id.spotty</string>
+	<string>com.apple.ScriptEditor.id.spotty-beta</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>spotty</string>
+	<string>spotty_beta</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>aplt</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
@@ -41,8 +41,6 @@
 	<string>This script needs access to your contacts to run.</string>
 	<key>NSHomeKitUsageDescription</key>
 	<string>This script needs access to your HomeKit Home to run.</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>aadharsh made this</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This script needs access to your microphone to run.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -60,9 +58,9 @@
 	<key>WindowState</key>
 	<dict>
 		<key>bundleDividerCollapsed</key>
-		<false/>
+		<true/>
 		<key>bundlePositionOfDivider</key>
-		<real>401</real>
+		<real>0.0</real>
 		<key>dividerCollapsed</key>
 		<false/>
 		<key>eventLogLevel</key>
@@ -70,7 +68,7 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>343</real>
+		<real>395</real>
 		<key>savedFrame</key>
 		<string>20 265 700 678 0 0 1512 950 </string>
 		<key>selectedTab</key>
