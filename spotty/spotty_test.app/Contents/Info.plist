@@ -68,11 +68,11 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>529</real>
+		<real>528</real>
 		<key>savedFrame</key>
-		<string>700 216 700 678 0 0 1512 950 </string>
+		<string>366 230 700 678 0 0 1512 950 </string>
 		<key>selectedTab</key>
-		<string>description</string>
+		<string>log</string>
 	</dict>
 </dict>
 </plist>
